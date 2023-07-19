@@ -1,0 +1,48 @@
+<!--login page-->
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title>RECIPE|LOGIN</title>
+{% endblock %}
+{% block body %}
+<body style=" background-color: #b8a9c9"  >
+<!--form start -->
+<form class="col-6 mx-auto card p-3 bg-light mt-5"style="border-radius: 25px; " method="post" >
+{% csrf_token %}
+  <div class="mb-3">
+  <div clas="card " style="display:inline-block;padding: 5px ; 
+            width:650px;
+            height:50px;
+            border-radius: 25px;
+            box-shadow: 3px 5px 5px rgba(1,1,1,0.2);
+            transition: 0.2s ease-in-out ;
+            background-color:#80ced6;"> 
+            <h5 class=" text-light p-1 text-center">LOGIN HERE</h5>
+  </div>
+
+  
+<div class="m-3">
+    {% if messages %}
+    {{ message.tags }}
+    <div class="alert alert-info" role="alert">
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+    <label for="Enter user id" class="form-label">User Name</label>
+    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  
+  <button type="submit" class="btn " style="background-color: #b8a9c9">Submit</button>
+  <p style="color:#d96459" class="text-center mt-3 ">Don't have an account <a href="/register/">REGISTER<a></p>
+</form>
+<!--form end -->
+{% endblock %}
